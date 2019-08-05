@@ -75,7 +75,7 @@ public class MainRoute extends RouteBuilder {
                 .log(LoggingLevel.INFO,"FALLO VALIDACION CONTENIDO")
                 .throwException(new ParametroGenderValidationException())
             .end()
-            .to("sql: SELECT * FROM sys.users WHERE genero = :#${headers.gender}")
+            .to("sql: SELECT * FROM users WHERE genero = :#${headers.gender}")
             .bean("getResponse")
             .log("RESULT >> ${body}")
             .log("HEADERS >> ${headers}")

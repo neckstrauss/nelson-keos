@@ -56,7 +56,7 @@ public class GenerarUsuarioRoute extends RouteBuilder {
         .setHeader("user_email").jsonpath("$.[*].email", String.class)
         .setHeader("user_foto_large").jsonpath("$.[*].picture.large", String.class)
         
-        .to("sql:INSERT INTO sys.users " + 
+        .to("sql:INSERT INTO users " + 
                 "(genero, nombre, apellido, email, foto_large) " + 
                 "VALUES(:#${headers.user_genero}, :#${headers.user_nombre}, :#${headers.user_apellido}, :#${headers.user_email}, :#${headers.user_foto_large});"+
                 "?" +
